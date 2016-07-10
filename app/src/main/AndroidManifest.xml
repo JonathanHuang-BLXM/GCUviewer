@@ -25,6 +25,18 @@
         <activity
             android:name=".CatalogueActivity"
             android:label="@string/title_activity_catalogue"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FirstFragmentActivity"
+            android:label="@string/title_activity_first"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FirstActivity"
+            android:label="@string/title_activity_frist"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SecondActivity"
+            android:label="@string/title_activity_second"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

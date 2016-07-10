@@ -2,4 +2,15 @@
     <string name="app_name">GCUviewer</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_catalogue">CatalogueActivity</string>
+    <string name="title_activity_first">FirstActivity</string>
+    <string name="title_activity_frist">FristActivity</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="introduction">学校简介</string>
+    <string name="scenery">校园风光</string>
+    <string name="student">学校招生</string>
+    <string name="tissue">校级组织</string>
+    <string name="organization">社团协会</string>
+    <string name="history">二级学院</string>
+    <string name="union">团学简介</string>
+    <string name="about">关于我们</string>
 </resources>
