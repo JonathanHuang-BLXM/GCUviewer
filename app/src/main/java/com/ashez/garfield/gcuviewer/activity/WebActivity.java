@@ -8,7 +8,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
-import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -20,7 +19,11 @@ import com.ashez.garfield.gcuviewer.R;
  *         date: 2016-07-11
  */
 public class WebActivity extends AppCompatActivity {
-    private WebView webView;
+
+
+
+
+    private WebView mWebView;
     private String url;
     private Intent intent;
 
@@ -52,39 +55,39 @@ public class WebActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        initWebView();//初始化WebView
+    }
 
+    /**
+     * 设置WebView返回前页监听
+     * */
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
-        webView = (WebView) findViewById(R.id.webview);
-        if (webView != null) {
-            webView.loadUrl(url);
-            webView.setWebViewClient(new WebViewClient() {
+        if (keyCode == KeyEvent.KEYCODE_BACK && mWebView.canGoBack()) {
+            mWebView.goBack();// 返回前一个页面
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    /**
+     * 初始化WebView
+     */
+    private void initWebView() {
+        mWebView = (WebView) findViewById(R.id.webview);
+        if (mWebView != null) {
+            mWebView.loadUrl(url);
+            mWebView.setWebViewClient(new WebViewClient() {
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
                     view.loadUrl(url);
                     return true;
                 }
             });
-            webView.getSettings().setJavaScriptEnabled(true);
+            mWebView.getSettings().setJavaScriptEnabled(true);
         }
     }
 
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()) {
-            webView.goBack();// 返回前一个页面
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 
-    private void FAB() {
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
 
 }

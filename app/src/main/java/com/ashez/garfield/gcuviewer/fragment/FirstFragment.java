@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.ashez.garfield.gcuviewer.R;
 import com.ashez.garfield.gcuviewer.activity.IntroductionActivity;
+import com.ashez.garfield.gcuviewer.activity.SecondaryCatalogueActivity;
 import com.ashez.garfield.gcuviewer.activity.StudentActivity;
 import com.ashez.garfield.gcuviewer.activity.SystemActivity;
 
@@ -57,6 +58,15 @@ public class FirstFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(context,SystemActivity.class);
                 context.startActivity(intent);
+            }
+        });
+
+        chatView.findViewById(R.id.button_orgs).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), SecondaryCatalogueActivity.class);
+                intent.putExtra("kinds", "orgs");
+                startActivity(intent);
             }
         });
 

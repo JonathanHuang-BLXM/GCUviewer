@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 
+import com.ashez.garfield.gcuviewer.Contants;
 import com.ashez.garfield.gcuviewer.fragment.FirstFragment;
 import com.ashez.garfield.gcuviewer.adapter.FragmentAdapter;
 import com.ashez.garfield.gcuviewer.R;
@@ -13,6 +14,8 @@ import com.ashez.garfield.gcuviewer.fragment.SecondFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.bmob.v3.Bmob;
 
 /**
  * Created by 武纪怡 on 2016/7/10.
@@ -62,6 +65,12 @@ public class FirstFragmentActivity extends android.support.v4.app.FragmentActivi
             public void onPageScrollStateChanged(int state) {
 
             }
+
         });
+//        initBmob();
+    }
+
+    private void initBmob() {
+        Bmob.initialize(this, Contants.BMOB_KEY);
     }
 }

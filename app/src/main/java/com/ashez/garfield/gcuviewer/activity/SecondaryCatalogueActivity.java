@@ -1,6 +1,5 @@
 package com.ashez.garfield.gcuviewer.activity;
 
-import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -23,8 +22,17 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.ashez.garfield.gcuviewer.Contants;
 import com.ashez.garfield.gcuviewer.adapter.ContentRVAdapter;
 import com.ashez.garfield.gcuviewer.R;
+import com.ashez.garfield.gcuviewer.javabean.Kind;
+import com.ashez.garfield.gcuviewer.network.GetLink;
+
+import java.util.List;
+
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.FindListener;
 
 /**
  * @author 菠萝小莫
@@ -49,12 +57,16 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
 
-    private String[] mTabTitle;
+    private static String[] mTabTitle={"?","?"};
     private TabLayout.Tab[] mTabs;
 
     private static String[] mContentTitle;
     private static String[] mContentAuthor;
 
+    private String sub_kind;
+    private GetLink getLink;
+
+    private List<Kind> mList;
 
 
     @Override
@@ -64,7 +76,7 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
 
         initData();
 
-        initViews();
+
 
 
         //FAB();
@@ -72,10 +84,36 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        mTabTitle = new String[]{"师傅", "老孙", "二师兄", "老沙","菠萝小莫"};
-        mContentAuthor = new String[]{"师傅", "老孙", "二师兄", "老沙","师傅", "老孙", "二师兄", "老沙"};
-        mContentTitle = new String[]{"这是第1个酷酷的标题", "这是第2个酷酷的标题", "这是第3个酷酷的标题", "这是第4个酷酷的标题","这是第1个酷酷的标题", "这是第2个酷酷的标题", "这是第3个酷酷的标题", "这是第4个酷酷的标题"};
-    }
+        getLink = new GetLink();
+        switch (getIntent().getStringExtra("kinds")){
+            case "orgs":sub_kind = "校级组织";
+                break;
+        }
+        mContentAuthor = new String[]{"师傅", "老孙", "二师兄", "老沙", "师傅", "老孙", "二师兄", "老沙"};
+        mContentTitle = new String[]{"这是第1个酷酷的标题", "这是第2个酷酷的标题", "这是第3个酷酷的标题", "这是第4个酷酷的标题", "这是第1个酷酷的标题", "这是第2个酷酷的标题", "这是第3个酷酷的标题", "这是第4个酷酷的标题"};
+
+
+        BmobQuery<Kind> query = new BmobQuery<>();
+        query.addWhereEqualTo("sub_kind", sub_kind);
+        query.findObjects(this, new FindListener<Kind>() {
+            @Override
+            public void onSuccess(List<Kind> list) {
+                System.out.println("数组大小"+list.size());
+                mTabTitle = new String[list.size()];
+                for (int i = 0; i < list.size(); i++) {
+                    mTabTitle[i] = list.get(i).getKind();
+                    initViews();
+                }
+            }
+            @Override
+            public void onError(int i, String s) {
+                System.out.println("出现错误" + i + "string.." + s);
+            }
+        });
+
+
+
+        }
 
     private void initViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -97,8 +135,6 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
             mTabs[i] = mTabLayout.getTabAt(i);
             mTabs[i].setIcon(R.drawable.ic_face_black_24dp);
         }
-
-
 
 
     }
@@ -185,7 +221,7 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
             mRecyclerView.setHasFixedSize(true);
 
 
-            mAdapter = new ContentRVAdapter(mContentTitle,mContentAuthor,getContext());
+            mAdapter = new ContentRVAdapter(mContentTitle, mContentAuthor, getContext());
             mRecyclerView.setAdapter(mAdapter);
         }
     }

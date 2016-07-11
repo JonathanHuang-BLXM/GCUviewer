@@ -14,14 +14,26 @@ import com.ashez.garfield.gcuviewer.activity.SecondaryCatalogueActivity;
 import com.ashez.garfield.gcuviewer.activity.WebActivity;
 
 /**
- * Created by Garfield on 16/7/10.
+ * @author 菠萝小莫
+ *         Contact: Jonathan.expine@gmail.com
+ *         date: 2016-07-11
  */
 public class ContentRVAdapter extends RecyclerView.Adapter<ContentRVAdapter.MyHolder> {
 
+    /**
+     * 正文标题
+     * */
     private String[] contentTitle;
+    /**
+     * 作者信息
+     * */
     private String[] contentAuthor;
+    /**
+     * 文章标题背景图片
+     * */
+    private String[] contentBackgoundLink;
+
     private Context context;
-//    private String[] contentBackgoundLink;
 
     public ContentRVAdapter(String[] contentTitle, String[] contentAuthor, Context context) {
         this.contentTitle = contentTitle;
@@ -56,6 +68,7 @@ public class ContentRVAdapter extends RecyclerView.Adapter<ContentRVAdapter.MyHo
     public int getItemCount() {
         return contentTitle.length;
     }
+
     class MyHolder extends RecyclerView.ViewHolder {
         ImageView imageView4bg;
         TextView textView4title;
