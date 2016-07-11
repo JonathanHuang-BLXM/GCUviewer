@@ -1,4 +1,4 @@
-package com.ashez.garfield.gcuviewer;
+package com.ashez.garfield.gcuviewer.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.ashez.garfield.gcuviewer.R;
 
 public class StudentActivity extends AppCompatActivity {
 

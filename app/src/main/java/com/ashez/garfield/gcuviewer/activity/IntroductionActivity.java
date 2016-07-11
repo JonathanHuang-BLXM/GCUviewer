@@ -1,4 +1,4 @@
-package com.ashez.garfield.gcuviewer;
+package com.ashez.garfield.gcuviewer.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.ashez.garfield.gcuviewer.R;
 
 public class IntroductionActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.ashez.garfield.gcuviewer;
+package com.ashez.garfield.gcuviewer.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.ashez.garfield.gcuviewer.R;
+import com.ashez.garfield.gcuviewer.activity.IntroductionActivity;
+import com.ashez.garfield.gcuviewer.activity.StudentActivity;
+import com.ashez.garfield.gcuviewer.activity.SystemActivity;
 
 /**
  * Created by 武纪怡 on 2016/7/10.

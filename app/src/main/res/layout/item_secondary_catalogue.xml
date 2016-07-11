@@ -6,7 +6,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="#e85aa7"
+        android:background="#58aaa7"
         android:id="@+id/content_catalogue_bg"/>
 
     <LinearLayout

@@ -1,10 +1,16 @@
-package com.ashez.garfield.gcuviewer;
+package com.ashez.garfield.gcuviewer.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+
+import com.ashez.garfield.gcuviewer.fragment.FirstFragment;
+import com.ashez.garfield.gcuviewer.adapter.FragmentAdapter;
+import com.ashez.garfield.gcuviewer.R;
+import com.ashez.garfield.gcuviewer.fragment.SecondFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
