@@ -3,11 +3,14 @@ package com.ashez.garfield.gcuviewer;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Created by 武纪怡 on 2016/7/10.
+ */
 
 public class FirstFragmentActivity extends android.support.v4.app.FragmentActivity {
 
@@ -16,7 +19,6 @@ public class FirstFragmentActivity extends android.support.v4.app.FragmentActivi
     FirstFragment oneFragment;
     SecondFragment twoFragment;
     FragmentAdapter mAdapter;
-    FragmentManager mManager;
     TabLayout tabLayout;
 
     @Override
@@ -29,8 +31,8 @@ public class FirstFragmentActivity extends android.support.v4.app.FragmentActivi
         tabLayout = (TabLayout) findViewById(R.id.tab_FindFragment_title) ;
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         fragmentList = new ArrayList<Fragment>();
-        oneFragment = new FirstFragment();
-        twoFragment = new SecondFragment();
+        oneFragment = new FirstFragment(this);
+        twoFragment = new SecondFragment(this);
         fragmentList.add(oneFragment);
         fragmentList.add(twoFragment);
 

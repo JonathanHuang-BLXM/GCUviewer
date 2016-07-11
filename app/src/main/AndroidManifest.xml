@@ -37,6 +37,22 @@
         <activity
             android:name=".SecondActivity"
             android:label="@string/title_activity_second"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".IntroductionActivity"
+            android:label="@string/introduction"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/about"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".StudentActivity"
+            android:label="@string/student"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SystemActivity"
+            android:label="@string/system"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

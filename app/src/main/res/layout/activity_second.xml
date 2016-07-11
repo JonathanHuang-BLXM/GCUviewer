@@ -30,6 +30,7 @@
                 android:layout_weight="1"/>
 
             <Button
+                android:id="@+id/button_union"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
@@ -43,6 +44,7 @@
                 android:layout_weight="0.5"/>
 
             <Button
+                android:id="@+id/button_about"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"

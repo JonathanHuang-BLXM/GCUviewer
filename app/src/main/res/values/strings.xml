@@ -6,6 +6,7 @@
     <string name="title_activity_frist">FristActivity</string>
     <string name="title_activity_second">SecondActivity</string>
     <string name="introduction">学校简介</string>
+    <string name="system">教务系统</string>
     <string name="scenery">校园风光</string>
     <string name="student">学校招生</string>
     <string name="tissue">校级组织</string>
@@ -13,4 +14,8 @@
     <string name="history">二级学院</string>
     <string name="union">团学简介</string>
     <string name="about">关于我们</string>
+    <string name="title_activity_introduction">IntroductionActivity</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_student">StudentActivity</string>
+    <string name="title_activity_system">SystemActivity</string>
 </resources>

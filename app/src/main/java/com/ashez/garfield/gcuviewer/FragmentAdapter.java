@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by asus on 2016/7/10.
+ * Created by 武纪怡 on 2016/7/10.
  */
 public class FragmentAdapter extends FragmentPagerAdapter {
 
