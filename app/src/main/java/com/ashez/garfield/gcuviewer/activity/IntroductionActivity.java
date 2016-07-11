@@ -20,7 +20,9 @@ public class IntroductionActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         webView = (WebView) findViewById(R.id.webView_introduction);
-        webView.loadUrl("http://baike.baidu.com/link?url=iPKXYXIJRuWQ_5gSXQpWtYuuKDDBonrBU9BF3btuAGkzi-ROdaHxS9LKf4xcN3_2puZxylnBEmNotr2Q2kHdU_");
+        if (webView != null) {
+            webView.loadUrl("http://baike.baidu.com/link?url=iPKXYXIJRuWQ_5gSXQpWtYuuKDDBonrBU9BF3btuAGkzi-ROdaHxS9LKf4xcN3_2puZxylnBEmNotr2Q2kHdU_");
+        }
         webView.setWebViewClient(new WebViewClient() {
 
             @Override

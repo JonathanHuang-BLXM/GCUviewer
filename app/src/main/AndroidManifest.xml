@@ -15,9 +15,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activity.AboutActivity"
             android:label="@string/title_activity_catalogue"
@@ -32,7 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activity.FirstFragmentActivity"
             android:label="@string/title_activity_first"
@@ -49,7 +46,6 @@
             android:name=".activity.IntroductionActivity"
             android:label="@string/introduction"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".activity.StudentActivity"
             android:label="@string/student"
@@ -57,6 +53,10 @@
         <activity
             android:name=".activity.SystemActivity"
             android:label="@string/system"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.WebActivity"
+            android:label="@string/title_activity_web"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -1,5 +1,6 @@
 package com.ashez.garfield.gcuviewer.activity;
 
+import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -184,7 +185,7 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
             mRecyclerView.setHasFixedSize(true);
 
 
-            mAdapter = new ContentRVAdapter(mContentTitle,mContentAuthor);
+            mAdapter = new ContentRVAdapter(mContentTitle,mContentAuthor,getContext());
             mRecyclerView.setAdapter(mAdapter);
         }
     }

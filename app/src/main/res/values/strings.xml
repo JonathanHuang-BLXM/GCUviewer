@@ -22,4 +22,5 @@
     <string name="title_activity_about">AboutActivity</string>
     <string name="title_activity_student">StudentActivity</string>
     <string name="title_activity_system">SystemActivity</string>
+    <string name="title_activity_web">WebActivity</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.ashez.garfield.gcuviewer.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,11 +21,16 @@ public class FirstFragment extends Fragment {
 
     private Context context;
 
+
+    public FirstFragment(){}
+
+
+    @SuppressLint("ValidFragment")
     public FirstFragment(Context context) {
         this.context = context;
     }
 
-    public FirstFragment(){}
+
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         super.onCreateView(inflater, container, savedInstanceState);
