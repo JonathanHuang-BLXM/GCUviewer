@@ -1,4 +1,4 @@
-package com.ashez.garfield.gcuviewer;
+package com.ashez.garfield.gcuviewer.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -6,15 +6,15 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-/**
- * 目录页
- * */
-public class CatalogueActivity extends AppCompatActivity {
+
+import com.ashez.garfield.gcuviewer.R;
+
+public class SystemActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_catalogue);
+        setContentView(R.layout.activity_system);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

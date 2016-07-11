@@ -1,4 +1,4 @@
-package com.ashez.garfield.gcuviewer;
+package com.ashez.garfield.gcuviewer.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ashez.garfield.gcuviewer.R;
 
 /**
  * Created by Garfield on 16/7/10.

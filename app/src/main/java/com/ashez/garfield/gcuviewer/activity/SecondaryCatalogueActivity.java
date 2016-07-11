@@ -1,4 +1,4 @@
-package com.ashez.garfield.gcuviewer;
+package com.ashez.garfield.gcuviewer.activity;
 
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -22,6 +22,9 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.ashez.garfield.gcuviewer.adapter.ContentRVAdapter;
+import com.ashez.garfield.gcuviewer.R;
+
 /**
  * @author 菠萝小莫
  *         Contact: Jonathan.expine@gmail.com
@@ -43,16 +46,14 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-
     private TabLayout mTabLayout;
 
-
     private String[] mTabTitle;
+    private TabLayout.Tab[] mTabs;
 
     private static String[] mContentTitle;
     private static String[] mContentAuthor;
 
-    private TabLayout.Tab[] mTabs;
 
 
     @Override
@@ -70,7 +71,7 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        mTabTitle = new String[]{"师傅", "老孙", "二师兄", "老沙"};
+        mTabTitle = new String[]{"师傅", "老孙", "二师兄", "老沙","菠萝小莫"};
         mContentAuthor = new String[]{"师傅", "老孙", "二师兄", "老沙","师傅", "老孙", "二师兄", "老沙"};
         mContentTitle = new String[]{"这是第1个酷酷的标题", "这是第2个酷酷的标题", "这是第3个酷酷的标题", "这是第4个酷酷的标题","这是第1个酷酷的标题", "这是第2个酷酷的标题", "这是第3个酷酷的标题", "这是第4个酷酷的标题"};
     }
