@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ashez.garfield.gcuviewer.R;
+import com.ashez.garfield.gcuviewer.activity.SecondaryCatalogueActivity;
+import com.ashez.garfield.gcuviewer.activity.WebActivity;
 import com.ashez.garfield.gcuviewer.activity.IntroductionActivity;
 import com.ashez.garfield.gcuviewer.activity.SecondaryCatalogueActivity;
 import com.ashez.garfield.gcuviewer.activity.StudentActivity;
@@ -21,7 +23,7 @@ import com.ashez.garfield.gcuviewer.activity.SystemActivity;
 public class FirstFragment extends Fragment {
 
     private Context context;
-
+    private String[] mtitle;
 
     public FirstFragment(){}
 
@@ -31,16 +33,16 @@ public class FirstFragment extends Fragment {
         this.context = context;
     }
 
-
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         super.onCreateView(inflater, container, savedInstanceState);
-        View chatView = inflater.inflate(R.layout.activity_first, container,false);
+        final View chatView = inflater.inflate(R.layout.activity_first, container,false);
 
         chatView.findViewById(R.id.button_introduction).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,IntroductionActivity.class);
+                Intent intent = new Intent(context, WebActivity.class);
+                intent.putExtra("website", "http://baike.baidu.com/link?url=iPKXYXIJRuWQ_5gSXQpWtYuuKDDBonrBU9BF3btuAGkzi-ROdaHxS9LKf4xcN3_2puZxylnBEmNotr2Q2kHdU_");
+                intent.putExtra("name",getResources().getString(R.string.introduction));
                 context.startActivity(intent);
             }
         });
@@ -48,7 +50,9 @@ public class FirstFragment extends Fragment {
         chatView.findViewById(R.id.button_student).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,StudentActivity.class);
+                Intent intent = new Intent(context, WebActivity.class);
+                intent.putExtra("website", "http://zs.gcu.edu.cn/");
+                intent.putExtra("name",getResources().getString(R.string.student));
                 context.startActivity(intent);
             }
         });
@@ -56,7 +60,37 @@ public class FirstFragment extends Fragment {
         chatView.findViewById(R.id.button_system).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,SystemActivity.class);
+                Intent intent = new Intent(context,WebActivity.class);
+                intent.putExtra("website","http://jwxt.gcu.edu.cn/");
+                intent.putExtra("name",getResources().getString(R.string.system));
+                context.startActivity(intent);
+
+            }
+        });
+
+        chatView.findViewById(R.id.button_tissue).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, SecondaryCatalogueActivity.class);
+                intent.putExtra("name",getResources().getString(R.string.tissue));
+                context.startActivity(intent);
+            }
+        });
+
+        chatView.findViewById(R.id.button_organization).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, SecondaryCatalogueActivity.class);
+                intent.putExtra("name",getResources().getString(R.string.organization));
+                context.startActivity(intent);
+            }
+        });
+
+        chatView.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, SecondaryCatalogueActivity.class);
+                intent.putExtra("name",getResources().getString(R.string.second));
                 context.startActivity(intent);
             }
         });

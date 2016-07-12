@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -26,7 +27,7 @@ public class WebActivity extends AppCompatActivity {
     private WebView mWebView;
     private String url;
     private Intent intent;
-
+    private String name;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -34,6 +35,8 @@ public class WebActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        name = getIntent().getStringExtra("name");
+        toolbar.setTitle(name);
         setSupportActionBar(toolbar);
 
         initData();
@@ -69,6 +72,7 @@ public class WebActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
 
     /**
      * 初始化WebView
