@@ -1,5 +1,6 @@
 package com.ashez.garfield.gcuviewer.activity;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,8 +27,10 @@ import com.ashez.garfield.gcuviewer.Contants;
 import com.ashez.garfield.gcuviewer.adapter.ContentRVAdapter;
 import com.ashez.garfield.gcuviewer.R;
 import com.ashez.garfield.gcuviewer.javabean.Kind;
+import com.ashez.garfield.gcuviewer.javabean.Link;
 import com.ashez.garfield.gcuviewer.network.GetLink;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.Bmob;
@@ -57,16 +60,25 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
 
-    private static String[] mTabTitle={"?","?"};
+    private static String[] mTabTitle = {"?", "?"};
     private TabLayout.Tab[] mTabs;
 
-    private static String[] mContentTitle;
+    private String[] mContentTitle;
     private static String[] mContentAuthor;
+    private String[] mContentPicture;
+    private String[] mContentWebsite;
+//    private ArrayList<String> mContentTitle;
+//    private ArrayList<String> mContentAuthor;
+
 
     private String sub_kind;
+    private String kind;
     private GetLink getLink;
 
     private List<Kind> mList;
+    private int pos;
+
+    private List<PlaceholderFragment> mFragments;
 
 
     @Override
@@ -76,21 +88,21 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
 
         initData();
 
-
-
-
         //FAB();
 
     }
 
     private void initData() {
+        mFragments = new ArrayList<>();
+
         getLink = new GetLink();
-        switch (getIntent().getStringExtra("kinds")){
-            case "orgs":sub_kind = "校级组织";
+        switch (getIntent().getStringExtra("kinds")) {
+            case "orgs":
+                sub_kind = "校级组织";
                 break;
         }
-        mContentAuthor = new String[]{"师傅", "老孙", "二师兄", "老沙", "师傅", "老孙", "二师兄", "老沙"};
-        mContentTitle = new String[]{"这是第1个酷酷的标题", "这是第2个酷酷的标题", "这是第3个酷酷的标题", "这是第4个酷酷的标题", "这是第1个酷酷的标题", "这是第2个酷酷的标题", "这是第3个酷酷的标题", "这是第4个酷酷的标题"};
+//        mContentAuthor = new String[]{"师傅", "老孙", "二师兄", "老沙", "师傅", "老孙", "二师兄", "老沙"};
+//        mContentTitle = new String[]{"这是第1个酷酷的标题", "这是第2个酷酷的标题", "这是第3个酷酷的标题", "这是第4个酷酷的标题", "这是第1个酷酷的标题", "这是第2个酷酷的标题", "这是第3个酷酷的标题", "这是第4个酷酷的标题"};
 
 
         BmobQuery<Kind> query = new BmobQuery<>();
@@ -98,33 +110,78 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
         query.findObjects(this, new FindListener<Kind>() {
             @Override
             public void onSuccess(List<Kind> list) {
-                System.out.println("数组大小"+list.size());
                 mTabTitle = new String[list.size()];
                 for (int i = 0; i < list.size(); i++) {
                     mTabTitle[i] = list.get(i).getKind();
-                    initViews();
                 }
+                initViews();
             }
+
             @Override
             public void onError(int i, String s) {
                 System.out.println("出现错误" + i + "string.." + s);
             }
         });
-
-
-
-        }
+        System.out.println("第一个title是....." + mTabTitle[0]);
+    }
 
     private void initViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), mFragments);
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                pos = position;
+
+                BmobQuery<Link> query = new BmobQuery<>();
+
+                query.addWhereEqualTo("kind", mTabTitle[position]);
+
+                query.findObjects(getBaseContext(), new FindListener<Link>() {
+                    @Override
+                    public void onSuccess(List<Link> list) {
+                        System.out.println("数组大小" + list.size());
+                        mContentTitle = new String[list.size()];
+                        mContentAuthor = new String[list.size()];
+                        mContentPicture = new String[list.size()];
+                        mContentWebsite = new String[list.size()];
+
+                        for (int i = 0; i < list.size(); i++) {
+                            mContentTitle[i] = list.get(i).getTitle();
+                            mContentAuthor[i] = "菠萝小莫";
+                            mContentPicture[i] = list.get(i).getWebsite_pic();
+                            mContentWebsite[i] = list.get(i).getWebsite_content();
+                        }
+                        mFragments.get(pos).notifyDataChanges(mContentTitle, mContentAuthor, mContentPicture, mContentWebsite);
+
+                    }
+
+                    @Override
+                    public void onError(int i, String s) {
+                        System.out.println("出现错误" + i + "string.." + s);
+                    }
+                });
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
 
         mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
         mTabLayout.setupWithViewPager(mViewPager);
@@ -185,9 +242,21 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
 
         private RecyclerView mRecyclerView;
         private ContentRVAdapter mAdapter;
+        private ArrayList<String> mContentTitle = new ArrayList<>();
+        private ArrayList<String> mContentAuthor = new ArrayList<>();
+        private ArrayList<String> mContentPicture = new ArrayList<>();
+        private ArrayList<String> mContentWebsite = new ArrayList<>();
 
         public PlaceholderFragment() {
         }
+
+        @SuppressLint("ValidFragment")
+//        public PlaceholderFragment(String[] mContentTitle, String[] mContentAuthor) {
+//            super();
+//            this.mContentTitle = mContentTitle;
+//            this.mContentAuthor = mContentAuthor;
+//        }
+
 
         /**
          * Returns a new instance of this fragment for the given section
@@ -221,9 +290,32 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
             mRecyclerView.setHasFixedSize(true);
 
 
-            mAdapter = new ContentRVAdapter(mContentTitle, mContentAuthor, getContext());
+            mAdapter = new ContentRVAdapter(mContentTitle, mContentAuthor, mContentPicture, mContentWebsite, getContext());
             mRecyclerView.setAdapter(mAdapter);
+
         }
+
+        public void notifyDataChanges(String[] mContentTitle, String[] mContentAuthor, String[] mContentPicture, String[] mContentWebsite) {
+
+            this.mContentTitle.clear();
+            this.mContentAuthor.clear();
+            this.mContentPicture.clear();
+            this.mContentWebsite.clear();
+
+
+            for (int i = 0; i < mContentTitle.length; i++) {
+                this.mContentTitle.add(mContentTitle[i]);
+                this.mContentAuthor.add(mContentAuthor[i]);
+                this.mContentPicture.add(mContentPicture[i]);
+                this.mContentWebsite.add(mContentWebsite[i]);
+            }
+
+
+            mAdapter.notifyDataSetChanged();
+            System.out.println("执行到了...........");
+        }
+
+
     }
 
     /**
@@ -231,16 +323,20 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
+        List<PlaceholderFragment> mFragments;
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        public SectionsPagerAdapter(FragmentManager fm, List<PlaceholderFragment> list) {
             super(fm);
+            this.mFragments = list;
         }
 
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            PlaceholderFragment fragment = PlaceholderFragment.newInstance(position + 1);
+            mFragments.add(fragment);
+            return fragment;
         }
 
         @Override
@@ -253,5 +349,7 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mTabTitle[position];
         }
+
+
     }
 }

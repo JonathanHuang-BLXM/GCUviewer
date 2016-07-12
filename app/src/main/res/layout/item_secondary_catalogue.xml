@@ -5,9 +5,15 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="180dp"
         android:background="#58aaa7"
+        android:scaleType="centerCrop"
         android:id="@+id/content_catalogue_bg"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:alpha="0.4"
+        android:background="#000000"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
