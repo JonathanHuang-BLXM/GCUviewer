@@ -12,10 +12,6 @@ import android.view.ViewGroup;
 import com.ashez.garfield.gcuviewer.R;
 import com.ashez.garfield.gcuviewer.activity.SecondaryCatalogueActivity;
 import com.ashez.garfield.gcuviewer.activity.WebActivity;
-import com.ashez.garfield.gcuviewer.activity.IntroductionActivity;
-import com.ashez.garfield.gcuviewer.activity.SecondaryCatalogueActivity;
-import com.ashez.garfield.gcuviewer.activity.StudentActivity;
-import com.ashez.garfield.gcuviewer.activity.SystemActivity;
 
 /**
  * Created by 武纪怡 on 2016/7/10.
@@ -68,7 +64,7 @@ public class FirstFragment extends Fragment {
             }
         });
 
-        chatView.findViewById(R.id.button_tissue).setOnClickListener(new View.OnClickListener() {
+        chatView.findViewById(R.id.button_orgs).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, SecondaryCatalogueActivity.class);
@@ -77,7 +73,7 @@ public class FirstFragment extends Fragment {
             }
         });
 
-        chatView.findViewById(R.id.button_organization).setOnClickListener(new View.OnClickListener() {
+        chatView.findViewById(R.id.button_asso).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, SecondaryCatalogueActivity.class);
