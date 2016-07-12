@@ -54,6 +54,7 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
 
     private static String[] mContentTitle;
     private static String[] mContentAuthor;
+    private String name;
 
 
 
@@ -65,6 +66,7 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
         initData();
 
         initViews();
+
 
 
         //FAB();
@@ -79,7 +81,18 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
 
     private void initViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        name = getIntent().getStringExtra("name");
+        toolbar.setTitle(name);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        assert toolbar != null;
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -97,9 +110,6 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
             mTabs[i] = mTabLayout.getTabAt(i);
             mTabs[i].setIcon(R.drawable.ic_face_black_24dp);
         }
-
-
-
 
     }
 

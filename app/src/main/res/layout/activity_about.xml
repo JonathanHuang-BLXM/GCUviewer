@@ -23,9 +23,10 @@
 
     <include layout="@layout/content_about" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/logo"/>
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_margin="45dp"
+            android:src="@mipmap/logo"/>
 
 </android.support.design.widget.CoordinatorLayout>

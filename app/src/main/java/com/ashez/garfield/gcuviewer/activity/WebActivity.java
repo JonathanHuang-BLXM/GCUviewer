@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.ashez.garfield.gcuviewer.R;
 /**
@@ -23,7 +24,7 @@ public class WebActivity extends AppCompatActivity {
     private WebView webView;
     private String url;
     private Intent intent;
-
+    private String name;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -31,6 +32,8 @@ public class WebActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        name = getIntent().getStringExtra("name");
+        toolbar.setTitle(name);
         setSupportActionBar(toolbar);
 
         initData();
@@ -76,15 +79,6 @@ public class WebActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    private void FAB() {
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
+
 
 }

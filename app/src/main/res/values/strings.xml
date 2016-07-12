@@ -15,7 +15,7 @@
     <string name="student">学校招生</string>
     <string name="tissue">校级组织</string>
     <string name="organization">社团协会</string>
-    <string name="history">二级学院</string>
+    <string name="second">二级学院</string>
     <string name="union">团学简介</string>
     <string name="about">关于我们</string>
     <string name="title_activity_introduction">IntroductionActivity</string>

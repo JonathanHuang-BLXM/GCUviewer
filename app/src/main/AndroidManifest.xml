@@ -23,36 +23,26 @@
         <activity
             android:name=".activity.SecondaryCatalogueActivity"
             android:label="@string/title_activity_secondary_catalogue"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".activity.FirstFragmentActivity"
+            android:label="@string/title_activity_first"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.FirstFragmentActivity"
-            android:label="@string/title_activity_first"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.FirstActivity"
-            android:label="@string/title_activity_frist"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".activity.SecondActivity"
             android:label="@string/title_activity_second"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.IntroductionActivity"
-            android:label="@string/introduction"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".activity.StudentActivity"
             android:label="@string/student"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.SystemActivity"
-            android:label="@string/system"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.WebActivity"

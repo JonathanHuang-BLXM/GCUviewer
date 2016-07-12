@@ -15,8 +15,6 @@ import com.ashez.garfield.gcuviewer.R;
 
 public class StudentActivity extends AppCompatActivity {
 
-    WebView webView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,26 +22,5 @@ public class StudentActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        webView = (WebView) findViewById(R.id.webView_student);
-        webView.loadUrl("http://zs.gcu.edu.cn/");
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-               view.loadUrl(url);
-                return true;
-            }
-        });
-
-        WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
-    }
-    //打开网页后返回到上一级网页
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
-            webView.goBack();
-            return true;
-        }
-        return super.onKeyDown(keyCode,event);
     }
 }
