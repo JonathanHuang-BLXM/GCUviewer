@@ -9,6 +9,10 @@ import android.view.View;
 
 import com.ashez.garfield.gcuviewer.R;
 
+/**
+ * Created by 武纪怡 on 2016/7/10.
+ */
+
 public class AboutActivity extends AppCompatActivity {
     private String name;
 

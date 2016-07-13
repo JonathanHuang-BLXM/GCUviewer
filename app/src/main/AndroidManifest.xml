@@ -51,11 +51,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".activity.StudentActivity"
-            android:label="@string/student"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
             android:name=".activity.WebActivity"
             android:label="@string/title_activity_web"
              />
