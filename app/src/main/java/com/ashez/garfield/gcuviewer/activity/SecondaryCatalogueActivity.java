@@ -1,9 +1,6 @@
 package com.ashez.garfield.gcuviewer.activity;
 
-import android.annotation.SuppressLint;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,17 +20,14 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-import com.ashez.garfield.gcuviewer.Contants;
 import com.ashez.garfield.gcuviewer.adapter.ContentRVAdapter;
 import com.ashez.garfield.gcuviewer.R;
 import com.ashez.garfield.gcuviewer.javabean.Kind;
 import com.ashez.garfield.gcuviewer.javabean.Link;
-import com.ashez.garfield.gcuviewer.network.GetLink;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.FindListener;
 
@@ -44,67 +38,40 @@ import cn.bmob.v3.listener.FindListener;
  */
 public class SecondaryCatalogueActivity extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
+    private int                            pos;
+    private String                         sub_kind;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    private ViewPager mViewPager;
-    private TabLayout mTabLayout;
+    private String[]                       mContentTitle;
+    private String[]                       mContentPicture;
+    private String[]                       mContentWebsite;
+    private String[]                       mContentAuthor;
+    private String[]                       mTabTitle = {"?", "?"};
 
-    private static String[] mTabTitle = {"?", "?"};
-    private TabLayout.Tab[] mTabs;
+    private ViewPager                      mViewPager;
+    private TabLayout                      mTabLayout;
+    private TabLayout.Tab[]                mTabs;
 
-    private String[] mContentTitle;
-    private static String[] mContentAuthor;
-    private String[] mContentPicture;
-    private String[] mContentWebsite;
-//    private ArrayList<String> mContentTitle;
-//    private ArrayList<String> mContentAuthor;
-
-
-    private String sub_kind;
-    private String kind;
-    private GetLink getLink;
-
-    private List<Kind> mList;
-    private int pos;
-
-    private List<PlaceholderFragment> mFragments;
+    private SectionsPagerAdapter           mSectionsPagerAdapter;
+    private List<PlaceholderFragment>      mFragments;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secondary_catalogue);
-
-        initData();
-
-        //FAB();
-
+        init();
     }
 
-    private void initData() {
+    private void init() {
         mFragments = new ArrayList<>();
 
-        getLink = new GetLink();
         switch (getIntent().getStringExtra("kinds")) {
             case "orgs":
                 sub_kind = "校级组织";
                 break;
+            case "college":
+                sub_kind = "二级学院";
         }
-//        mContentAuthor = new String[]{"师傅", "老孙", "二师兄", "老沙", "师傅", "老孙", "二师兄", "老沙"};
-//        mContentTitle = new String[]{"这是第1个酷酷的标题", "这是第2个酷酷的标题", "这是第3个酷酷的标题", "这是第4个酷酷的标题", "这是第1个酷酷的标题", "这是第2个酷酷的标题", "这是第3个酷酷的标题", "这是第4个酷酷的标题"};
-
-
         BmobQuery<Kind> query = new BmobQuery<>();
         query.addWhereEqualTo("sub_kind", sub_kind);
         query.findObjects(this, new FindListener<Kind>() {
@@ -115,6 +82,7 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
                     mTabTitle[i] = list.get(i).getKind();
                 }
                 initViews();
+                getLink(0);
             }
 
             @Override
@@ -128,60 +96,36 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
     private void initViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+        toolbar.setTitle(sub_kind);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });//返回键
+        // 用SectionsPagerAdapter绑定vp和fragment，
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), mFragments);
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        //监听页面变化，当前选中的fragment联网加载
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
-
             @Override
             public void onPageSelected(int position) {
                 pos = position;
-
-                BmobQuery<Link> query = new BmobQuery<>();
-
-                query.addWhereEqualTo("kind", mTabTitle[position]);
-
-                query.findObjects(getBaseContext(), new FindListener<Link>() {
-                    @Override
-                    public void onSuccess(List<Link> list) {
-                        System.out.println("数组大小" + list.size());
-                        mContentTitle = new String[list.size()];
-                        mContentAuthor = new String[list.size()];
-                        mContentPicture = new String[list.size()];
-                        mContentWebsite = new String[list.size()];
-
-                        for (int i = 0; i < list.size(); i++) {
-                            mContentTitle[i] = list.get(i).getTitle();
-                            mContentAuthor[i] = "菠萝小莫";
-                            mContentPicture[i] = list.get(i).getWebsite_pic();
-                            mContentWebsite[i] = list.get(i).getWebsite_content();
-                        }
-                        mFragments.get(pos).notifyDataChanges(mContentTitle, mContentAuthor, mContentPicture, mContentWebsite);
-
-                    }
-
-                    @Override
-                    public void onError(int i, String s) {
-                        System.out.println("出现错误" + i + "string.." + s);
-                    }
-                });
-
+                getLink(position);
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
-
 
         mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
         mTabLayout.setupWithViewPager(mViewPager);
@@ -190,53 +134,50 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
         for (int i = 0; i < mTabTitle.length; i++) {
             //Initialize every tab
             mTabs[i] = mTabLayout.getTabAt(i);
-            mTabs[i].setIcon(R.drawable.ic_face_black_24dp);
+//            mTabs[i].setIcon(R.drawable.ic_face_black_24dp);
         }
-
-
     }
 
-    private void FAB() {
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+    private void getLink(int position) {
+        BmobQuery<Link> query = new BmobQuery<>();
+        query.addWhereEqualTo("kind", mTabTitle[position]);
+        query.findObjects(getBaseContext(), new FindListener<Link>() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onSuccess(List<Link> list) {
+                System.out.println("数组大小" + list.size());
+                mContentTitle = new String[list.size()];
+                mContentAuthor = new String[list.size()];
+                mContentPicture = new String[list.size()];
+                mContentWebsite = new String[list.size()];
+
+                for (int i = 0; i < list.size(); i++) {
+                    mContentTitle[i] = list.get(i).getTitle();
+                    mContentAuthor[i] = "菠萝小莫";
+                    mContentPicture[i] = list.get(i).getWebsite_pic();
+                    mContentWebsite[i] = list.get(i).getWebsite_content();
+                }
+                mFragments.get(pos).notifyDataChanges(mContentTitle, mContentAuthor, mContentPicture, mContentWebsite);
+            }
+            @Override
+            public void onError(int i, String s) {
+                System.out.println("出现错误" + i + "string.." + s);
             }
         });
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_secondary_catalogue, menu);
+        //getMenuInflater().inflate(R.menu.menu_secondary_catalogue, menu);
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     /**
-     * A placeholder fragment containing a simple view.
+     * 自定义Fragment
      */
     public static class PlaceholderFragment extends Fragment {
         /**
-         * The fragment argument representing the section number for this
-         * fragment.
+         * ARG_SECTION_NUMBER:第几个fragment标记
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
@@ -250,17 +191,8 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
         public PlaceholderFragment() {
         }
 
-        @SuppressLint("ValidFragment")
-//        public PlaceholderFragment(String[] mContentTitle, String[] mContentAuthor) {
-//            super();
-//            this.mContentTitle = mContentTitle;
-//            this.mContentAuthor = mContentAuthor;
-//        }
-
-
         /**
-         * Returns a new instance of this fragment for the given section
-         * number.
+         * 返回第sectionNumber个fragment
          */
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
@@ -319,8 +251,7 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
     }
 
     /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
+     * 二级菜单ViewPager的Adapter
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
         List<PlaceholderFragment> mFragments;
@@ -351,5 +282,20 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

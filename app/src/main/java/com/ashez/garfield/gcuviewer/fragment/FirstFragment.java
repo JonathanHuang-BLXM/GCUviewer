@@ -64,14 +64,6 @@ public class FirstFragment extends Fragment {
             }
         });
 
-        chatView.findViewById(R.id.button_orgs).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, SecondaryCatalogueActivity.class);
-                intent.putExtra("name",getResources().getString(R.string.tissue));
-                context.startActivity(intent);
-            }
-        });
 
         chatView.findViewById(R.id.button_asso).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +78,7 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, SecondaryCatalogueActivity.class);
-                intent.putExtra("name",getResources().getString(R.string.second));
+                intent.putExtra("kinds","college");
                 context.startActivity(intent);
             }
         });

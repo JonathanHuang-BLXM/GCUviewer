@@ -67,7 +67,7 @@ public class FirstFragmentActivity extends android.support.v4.app.FragmentActivi
             }
 
         });
-//        initBmob();
+        initBmob();
     }
 
     private void initBmob() {
