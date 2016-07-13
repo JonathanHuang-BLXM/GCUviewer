@@ -76,12 +76,13 @@ public class ContentRVAdapter extends RecyclerView.Adapter<ContentRVAdapter.MyHo
 //                .error(R.drawable.ic_person)//load失敗的Drawable
 
                 .placeholder(R.mipmap.logo)//loading時候的Drawable
+                .crossFade()
 
 //                .animate()//設置load完的動畫
 
-//                .centerCrop()//中心切圖, 會填滿
+                .centerCrop()//中心切圖, 會填滿
 
-                .fitCenter()//中心fit, 以原本圖片的長寬為主
+//                .fitCenter()//中心fit, 以原本圖片的長寬為主
 
                 .into(holder.imageView4bg);
     }
