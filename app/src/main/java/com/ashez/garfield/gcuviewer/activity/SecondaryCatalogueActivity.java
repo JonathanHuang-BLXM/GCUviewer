@@ -1,5 +1,6 @@
 package com.ashez.garfield.gcuviewer.activity;
 
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -105,6 +106,7 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });//返回键
+//        toolbar.setTitleTextColor(Color.parseColor("#FFE242"));
         // 用SectionsPagerAdapter绑定vp和fragment，
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), mFragments);
 

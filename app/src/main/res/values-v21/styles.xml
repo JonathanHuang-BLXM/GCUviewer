@@ -1,10 +1,14 @@
 <resources>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:textColorPrimaryInverse">@color/abc_background_cache_hint_selector_material_light</item>
+        <item name="colorAccent">@color/bright_foreground_disabled_material_light</item>
+        <item name="android:textColorSecondary">@color/abc_input_method_navigation_guard</item>
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -17,5 +21,10 @@
 
     <style name="aaaaa" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:statusBarColor">@color/colorPrimaryDark_1</item>
+    </style>
+
+    <style name="mTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/bright_foreground_material_light</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
     </style>
 </resources>

@@ -34,10 +34,10 @@ public class FirstFragmentActivity extends android.support.v4.app.FragmentActivi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firstfragment);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        getActionBar().setDisplayShowHomeEnabled(false);
 
-        tabLayout = (TabLayout) findViewById(R.id.tab_FindFragment_title) ;
+//        tabLayout = (TabLayout) findViewById(R.id.tab_FindFragment_title) ;
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         fragmentList = new ArrayList<Fragment>();
         oneFragment = new FirstFragment(this);
@@ -45,11 +45,11 @@ public class FirstFragmentActivity extends android.support.v4.app.FragmentActivi
         fragmentList.add(oneFragment);
         fragmentList.add(twoFragment);
 
-        tabLayout.setTabMode(TabLayout.MODE_FIXED);
+//        tabLayout.setTabMode(TabLayout.MODE_FIXED);
 
         mAdapter = new FragmentAdapter(this.getSupportFragmentManager(),fragmentList);
         viewPager.setAdapter(mAdapter);
-        tabLayout.setupWithViewPager(viewPager);
+//        tabLayout.setupWithViewPager(viewPager);
         viewPager.setCurrentItem(0);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

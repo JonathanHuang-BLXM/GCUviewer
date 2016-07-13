@@ -1,163 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:fitsSystemWindows="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#caffff"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
-
-            <Button
-                android:id="@+id/button_introduction"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:background="#84c1ff"
-                android:text="@string/introduction"/>
 
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"/>
+    <GridLayout
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="3">
 
-            <Button
-                android:id="@+id/button_system"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:background="#84c1ff"
-                android:text="@string/system"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
+        <Button
+            android:id="@+id/button_introduction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#FFE242"
+            android:padding="40dp"
+            android:text="@string/introduction"
+            android:textSize="12pt" />
 
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/button_system"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#FFE242"
+            android:padding="40dp"
+            android:text="@string/system"
+            android:textSize="12pt" />
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"/>
+        <Button
+            android:id="@+id/button_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#FFE242"
+            android:padding="40dp"
+            android:text="@string/student"
+            android:textSize="12pt" />
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
+        <Button
+            android:id="@+id/button_orgs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#FFE242"
+            android:padding="40dp"
+            android:text="@string/tissue"
+            android:textSize="12pt" />
 
-            <Button
-                android:id="@+id/button_student"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:background="#84c1ff"
-                android:text="@string/student"/>
+        <Button
+            android:id="@+id/button_asso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#FFE242"
+            android:padding="40dp"
+            android:text="@string/organization"
+            android:textSize="12pt" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"/>
 
-            <Button
-                android:id="@+id/button_orgs"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:background="#84c1ff"
-                android:text="@string/tissue"/>
+        <Button
+            android:id="@+id/button_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#FFE242"
+            android:padding="40dp"
+            android:text="@string/second"
+            android:textSize="12pt" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
 
-        </LinearLayout>
+    </GridLayout>
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"/>
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:orientation="horizontal">
+        <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
+            <!--<Button-->
+                <!--android:id="@+id/button_introduction"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:background="#FFE242"-->
+                <!--android:padding="40dp"-->
+                <!--android:text="@string/introduction"-->
+                <!--android:textSize="12pt" />-->
 
-            <Button
-                android:id="@+id/button_asso"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:background="#84c1ff"
-                android:text="@string/organization"/>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"/>
+            <!--<Button-->
+                <!--android:id="@+id/button_system"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:background="#FFE242"-->
+                <!--android:padding="40dp"-->
+                <!--android:text="@string/system"-->
+                <!--android:textSize="12pt" />-->
 
-            <Button
-                android:id="@+id/button_second"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:background="#84c1ff"
-                android:text="@string/second"/>
+        <!--</LinearLayout>-->
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
+        <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
 
-        </LinearLayout>
+            <!--<Button-->
+                <!--android:id="@+id/button_student"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:background="#FFE242"-->
+                <!--android:padding="40dp"-->
+                <!--android:text="@string/student"-->
+                <!--android:textSize="12pt" />-->
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" >
 
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="@string/content_author"
-                android:gravity="center|bottom"/>
+            <!--<Button-->
+                <!--android:id="@+id/button_orgs"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:background="#FFE242"-->
+                <!--android:padding="40dp"-->
+                <!--android:text="@string/tissue"-->
+                <!--android:textSize="12pt" />-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
-    </LinearLayout>
+        <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
 
-</android.support.design.widget.CoordinatorLayout>
+            <!--<Button-->
+                <!--android:id="@+id/button_asso"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:background="#FFE242"-->
+                <!--android:padding="40dp"-->
+                <!--android:text="@string/organization"-->
+                <!--android:textSize="12pt" />-->
+
+
+            <!--<Button-->
+                <!--android:id="@+id/button_second"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:background="#FFE242"-->
+                <!--android:padding="40dp"-->
+                <!--android:text="@string/second"-->
+                <!--android:textSize="12pt" />-->
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--android:gravity="center|bottom"-->
+            <!--android:text="@string/content_author" />-->
+
+    <!--</LinearLayout>-->
+
+
+</RelativeLayout>

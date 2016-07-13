@@ -1,50 +1,115 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?><!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--tools:context="com.ashez.garfield.gcuviewer.activity.SplashActivity">-->
+
+
+<!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:orientation="vertical">-->
+
+<!--<View--><!--android:layout_width="match_parent"--><!--android:layout_height="0dp"--><!--android:layout_weight="1"--><!--android:background="#000000" />-->
+
+<!--<View--><!--android:layout_width="match_parent"--><!--android:layout_height="0dp"--><!--android:layout_weight="1"--><!--android:background="#FFE242" />-->
+
+<!--</LinearLayout>-->
+
+<!--<LinearLayout--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_centerInParent="true"--><!--android:keepScreenOn="true"--><!--android:orientation="vertical">-->
+
+<!--<TextView--><!--android:id="@+id/fullscreen_content"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:text=" XING"--><!--android:textColor="#FFE242"-->
+
+<!--android:textSize="50sp"--><!--android:textStyle="bold" />-->
+
+<!--<TextView-->
+
+<!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:text="SIGHT"--><!--android:textColor="#000000"-->
+
+<!--android:textSize="50sp"--><!--android:textStyle="bold" />-->
+
+<!--</LinearLayout>-->
+
+<!--</RelativeLayout>-->
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
-    tools:context="com.ashez.garfield.gcuviewer.activity.SplashActivity">
+    android:orientation="vertical">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
-    <TextView
-        android:id="@+id/fullscreen_content"
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="#33b5e5"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg3" />
 
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
-    <FrameLayout
+    <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:background="#ba000000" />
 
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="?metaButtonBarStyle"
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            >
 
-            <Button
-                android:id="@+id/dummy_button"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
+            <View
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_centerInParent="true"
+                android:background="#e1FFE242" />
+
+            <View
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_centerInParent="true"
+                android:background="#d9000000" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
+                android:layout_centerInParent="true"
+                android:keepScreenOn="true"
+                android:orientation="vertical">
 
-        </LinearLayout>
-    </FrameLayout>
+                <TextView
+                    android:id="@+id/fullscreen_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text=" XING"
+                    android:textColor="#FFE242"
+                    android:textSize="35sp"
+                    android:textStyle="bold" />
 
-</FrameLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="SIGHT"
+                    android:textColor="#FFE242"
+                    android:textSize="35sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!--<TextView-->
+            <!--android:layout_marginTop="30dp"-->
+            <!--android:layout_marginBottom="30dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:text="星视野\nVer 1.0"-->
+            <!--android:textSize="25sp"-->
+            <!--android:textColor="#ffffff"/>-->
+
+    </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:textColor="#55ffffff"
+            android:text="ver 0.9"/>
+
+</RelativeLayout>
+

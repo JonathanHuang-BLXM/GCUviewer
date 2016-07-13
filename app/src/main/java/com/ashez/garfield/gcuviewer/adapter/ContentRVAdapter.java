@@ -75,7 +75,7 @@ public class ContentRVAdapter extends RecyclerView.Adapter<ContentRVAdapter.MyHo
 
 //                .error(R.drawable.ic_person)//load失敗的Drawable
 
-                .placeholder(R.mipmap.logo)//loading時候的Drawable
+                .placeholder(R.mipmap.ic_launcher)//loading時候的Drawable
                 .crossFade()
 
 //                .animate()//設置load完的動畫
