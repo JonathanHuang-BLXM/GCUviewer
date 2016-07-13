@@ -15,7 +15,6 @@ import com.ashez.garfield.gcuviewer.activity.WebActivity;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
-
 /**
  * @author 菠萝小莫
  *         Contact: Jonathan.expine@gmail.com
@@ -35,7 +34,9 @@ public class ContentRVAdapter extends RecyclerView.Adapter<ContentRVAdapter.MyHo
      * 文章标题背景图片
      * */
     private ArrayList<String> contentPicture;
-
+    /**
+     * 文章网址
+     * */
     private ArrayList<String> contentWebsite;
 
     private Context context;

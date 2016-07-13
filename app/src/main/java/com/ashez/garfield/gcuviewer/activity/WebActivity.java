@@ -21,13 +21,9 @@ import com.ashez.garfield.gcuviewer.R;
  */
 public class WebActivity extends AppCompatActivity {
 
-
-
-
-    private WebView mWebView;
     private String url;
-    private Intent intent;
     private String name;
+    private WebView mWebView;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -72,7 +68,6 @@ public class WebActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
 
     /**
      * 初始化WebView
