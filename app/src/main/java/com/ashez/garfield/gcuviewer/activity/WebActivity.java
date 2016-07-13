@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -76,6 +77,7 @@ public class WebActivity extends AppCompatActivity {
         mWebView = (WebView) findViewById(R.id.webview);
         if (mWebView != null) {
             mWebView.loadUrl(url);
+
             mWebView.setWebViewClient(new WebViewClient() {
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -83,7 +85,12 @@ public class WebActivity extends AppCompatActivity {
                     return true;
                 }
             });
+
+            //webView 支持缩放及自适应屏幕
             mWebView.getSettings().setJavaScriptEnabled(true);
+            mWebView.getSettings().setSupportZoom(true);
+            mWebView.getSettings().setBuiltInZoomControls(true);
+            mWebView.getSettings().setUseWideViewPort(true);
         }
     }
 
