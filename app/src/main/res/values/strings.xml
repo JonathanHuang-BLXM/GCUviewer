@@ -12,12 +12,13 @@
     <string name="introduction">学校\n简介</string>
     <string name="system">教务\n系统</string>
     <string name="scenery">校园\n风光</string>
-    <string name="student">学校\n招生</string>
     <string name="tissue">校级\n组织</string>
     <string name="organization">社团\n协会</string>
     <string name="second">二级\n学院</string>
-    <string name="union">团学\n简介</string>
     <string name="about">关于\n我们</string>
+    <string name="bus">华广\n车讯</string>
+    <string name="weather">天气\n预报</string>
+    <string name="book">星\n购书</string>
     <string name="title_activity_introduction">IntroductionActivity</string>
     <string name="title_activity_about">AboutActivity</string>
     <string name="title_activity_student">StudentActivity</string>

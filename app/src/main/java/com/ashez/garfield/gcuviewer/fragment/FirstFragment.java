@@ -43,16 +43,6 @@ public class FirstFragment extends Fragment {
             }
         });
 
-        chatView.findViewById(R.id.button_student).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, WebActivity.class);
-                intent.putExtra("website", "http://zs.gcu.edu.cn/");
-                intent.putExtra("name",getResources().getString(R.string.student));
-                context.startActivity(intent);
-            }
-        });
-
         chatView.findViewById(R.id.button_system).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,16 +54,6 @@ public class FirstFragment extends Fragment {
             }
         });
 
-
-        chatView.findViewById(R.id.button_asso).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, SecondaryCatalogueActivity.class);
-                intent.putExtra("name",getResources().getString(R.string.organization));
-                context.startActivity(intent);
-            }
-        });
-
         chatView.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +62,18 @@ public class FirstFragment extends Fragment {
                 context.startActivity(intent);
             }
         });
+
+
+        chatView.findViewById(R.id.button_asso).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, SecondaryCatalogueActivity.class);
+                intent.putExtra("kinds","organization");
+                context.startActivity(intent);
+            }
+        });
+
+
 
         chatView.findViewById(R.id.button_orgs).setOnClickListener(new View.OnClickListener() {
             @Override

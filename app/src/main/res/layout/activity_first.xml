@@ -2,10 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:fitsSystemWindows="true">
-
-
 
     <GridLayout
         android:layout_centerInParent="true"
@@ -13,6 +10,16 @@
         android:layout_height="wrap_content"
         android:columnCount="2"
         android:rowCount="3">
+
+        <Button
+            android:id="@+id/button_bus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#FFE242"
+            android:padding="40dp"
+            android:text="@string/bus"
+            android:textSize="12pt" />
 
         <Button
             android:id="@+id/button_introduction"
@@ -36,13 +43,13 @@
             android:textSize="12pt" />
 
         <Button
-            android:id="@+id/button_student"
+            android:id="@+id/button_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="#FFE242"
             android:padding="40dp"
-            android:text="@string/student"
+            android:text="@string/second"
             android:textSize="12pt" />
 
 
@@ -67,120 +74,8 @@
             android:textSize="12pt" />
 
 
-        <Button
-            android:id="@+id/button_second"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="#FFE242"
-            android:padding="40dp"
-            android:text="@string/second"
-            android:textSize="12pt" />
-
-
     </GridLayout>
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="vertical">-->
-
-        <!--<LinearLayout-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal">-->
-
-            <!--<Button-->
-                <!--android:id="@+id/button_introduction"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_margin="10dp"-->
-                <!--android:background="#FFE242"-->
-                <!--android:padding="40dp"-->
-                <!--android:text="@string/introduction"-->
-                <!--android:textSize="12pt" />-->
-
-
-            <!--<Button-->
-                <!--android:id="@+id/button_system"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_margin="10dp"-->
-                <!--android:background="#FFE242"-->
-                <!--android:padding="40dp"-->
-                <!--android:text="@string/system"-->
-                <!--android:textSize="12pt" />-->
-
-        <!--</LinearLayout>-->
-
-        <!--<LinearLayout-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal">-->
-
-            <!--<Button-->
-                <!--android:id="@+id/button_student"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_margin="10dp"-->
-                <!--android:background="#FFE242"-->
-                <!--android:padding="40dp"-->
-                <!--android:text="@string/student"-->
-                <!--android:textSize="12pt" />-->
-
-
-            <!--<Button-->
-                <!--android:id="@+id/button_orgs"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_margin="10dp"-->
-                <!--android:background="#FFE242"-->
-                <!--android:padding="40dp"-->
-                <!--android:text="@string/tissue"-->
-                <!--android:textSize="12pt" />-->
-
-        <!--</LinearLayout>-->
-
-        <!--<LinearLayout-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal">-->
-
-            <!--<Button-->
-                <!--android:id="@+id/button_asso"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_margin="10dp"-->
-                <!--android:background="#FFE242"-->
-                <!--android:padding="40dp"-->
-                <!--android:text="@string/organization"-->
-                <!--android:textSize="12pt" />-->
-
-
-            <!--<Button-->
-                <!--android:id="@+id/button_second"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_margin="10dp"-->
-                <!--android:background="#FFE242"-->
-                <!--android:padding="40dp"-->
-                <!--android:text="@string/second"-->
-                <!--android:textSize="12pt" />-->
-        <!--</LinearLayout>-->
-    <!--</LinearLayout>-->
-
-    <!--<LinearLayout-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_weight="1">-->
-
-        <!--<TextView-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="fill_parent"-->
-            <!--android:gravity="center|bottom"-->
-            <!--android:text="@string/content_author" />-->
-
-    <!--</LinearLayout>-->
 
 
 </RelativeLayout>

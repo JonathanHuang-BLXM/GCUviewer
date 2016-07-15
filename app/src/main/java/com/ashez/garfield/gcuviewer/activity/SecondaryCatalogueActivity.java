@@ -1,6 +1,5 @@
 package com.ashez.garfield.gcuviewer.activity;
 
-import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -72,6 +71,10 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
                 break;
             case "college":
                 sub_kind = "二级学院";
+                break;
+            case "organization" :
+                sub_kind = "社团协会";
+                break;
         }
         BmobQuery<Kind> query = new BmobQuery<>();
         query.addWhereEqualTo("sub_kind", sub_kind);
@@ -154,7 +157,7 @@ public class SecondaryCatalogueActivity extends AppCompatActivity {
 
                 for (int i = 0; i < list.size(); i++) {
                     mContentTitle[i] = list.get(i).getTitle();
-                    mContentAuthor[i] = "菠萝小莫";
+                    //mContentAuthor[i] = "菠萝小莫";
                     mContentPicture[i] = list.get(i).getWebsite_pic();
                     mContentWebsite[i] = list.get(i).getWebsite_content();
                 }

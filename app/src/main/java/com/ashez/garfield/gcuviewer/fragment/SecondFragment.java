@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.ashez.garfield.gcuviewer.R;
 import com.ashez.garfield.gcuviewer.activity.AboutActivity;
@@ -29,24 +30,16 @@ public class SecondFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View chatView = inflater.inflate(R.layout.activity_second, container,false);
 
-        chatView.findViewById(R.id.button_union).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, SecondaryCatalogueActivity.class);
-                intent.putExtra("name",getResources().getString(R.string.union));
-                context.startActivity(intent);
-            }
-        });
 
         chatView.findViewById(R.id.button_about).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,AboutActivity.class);
                 intent.putExtra("name",getResources().getString(R.string.about));
+                System.out.print("ssssssss");
                 context.startActivity(intent);
             }
         });
-
         return chatView;
     }
     @Override

@@ -27,12 +27,14 @@
             android:layout_height="wrap_content"
             android:text="@string/content_title"
             android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:gravity="center"
             android:id="@+id/content_catalogue_title"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:text="@string/content_author"
-            android:id="@+id/content_catalogue_author"/>
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:text="@string/content_author"-->
+            <!--android:id="@+id/content_catalogue_author"/>-->
     </LinearLayout>
 </FrameLayout>

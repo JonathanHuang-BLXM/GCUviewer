@@ -27,6 +27,6 @@
             android:layout_width="300dp"
             android:layout_height="200dp"
             android:layout_margin="45dp"
-            android:src="@mipmap/logo"/>
+            android:src="@drawable/logo"/>
 
 </android.support.design.widget.CoordinatorLayout>

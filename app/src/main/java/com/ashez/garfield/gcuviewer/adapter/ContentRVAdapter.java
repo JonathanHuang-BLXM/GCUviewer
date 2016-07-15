@@ -49,7 +49,6 @@ public class ContentRVAdapter extends RecyclerView.Adapter<ContentRVAdapter.MyHo
         this.contentPicture = contentPicture;
         this.contentWebsite = contentWebsite;
     }
-
     @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_secondary_catalogue, parent, false);
@@ -58,13 +57,14 @@ public class ContentRVAdapter extends RecyclerView.Adapter<ContentRVAdapter.MyHo
     }
 
     @Override
-    public void onBindViewHolder(MyHolder holder, final int position) {
+    public void onBindViewHolder(final MyHolder holder, final int position) {
         holder.textView4title.setText(contentTitle.get(position));
-        holder.textView4author.setText(contentAuthor.get(position));
+//        holder.textView4author.setText(contentAuthor.get(position));
         holder.imageView4bg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, WebActivity.class);
+                intent.putExtra("name",holder.textView4title.getText().toString());
                 intent.putExtra("website", contentWebsite.get(position));
                 context.startActivity(intent);
             }
@@ -99,7 +99,7 @@ public class ContentRVAdapter extends RecyclerView.Adapter<ContentRVAdapter.MyHo
         public MyHolder(View itemView) {
             super(itemView);
             imageView4bg = (ImageView) itemView.findViewById(R.id.content_catalogue_bg);
-            textView4author = (TextView) itemView.findViewById(R.id.content_catalogue_author);
+//            textView4author = (TextView) itemView.findViewById(R.id.content_catalogue_author);
             textView4title = (TextView) itemView.findViewById(R.id.content_catalogue_title);
         }
     }
